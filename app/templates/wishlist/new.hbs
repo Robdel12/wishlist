@@ -1,0 +1,42 @@
+<div class="new-wishlist">
+  <h1>Create a New Wishlist Item</h1>
+  <form class="new-wishlist-form" {{action "createNewItem" on="submit"}}>
+    <label for="item_url">Item URL</label>
+    {{input type="text" name="wishlist_name" value=itemURL id="item_url" placeholder="http://www.example.com"}}
+    {{#if validURL}}
+
+      <div class="row">
+        <div class="small-2 columns">
+          {{#if imgURL}}
+            <img alt="Image" src="{{imgURL}}" />
+          {{else}}
+            <img alt="" src="http://munkyboards.com/wp-content/uploads/2014/04/placeholder3.png"/>
+          {{/if}}
+        </div>
+        <div class="small-10 columns">
+          <label for="wishlist_name">Item Name</label>
+          {{input type="text" name="wishlist_name" value=itemName id="wishlist_name"}}
+
+          <label for="store_name">Store Name</label>
+          {{input type="text" name="store_name" value=nameOfStore id="store_name"}}
+        </div>
+      </div>
+
+
+      <label for="price">Price</label>
+      <div class="row collapse">
+        <div class="small-2 large-1 columns">
+          <span class="prefix">$</span>
+        </div>
+        <div class="small-10 large-11 columns">
+          {{input type="text" class="input-group-field" name="price" required="true" value=price id="price"}}
+        </div>
+      </div>
+
+      <label for="description">Short description</label>
+      {{input type="text" name="description" value=description id="description"}}
+    {{/if}}
+
+    <button type="submit" class="{{if validURL '' 'disabled'}}">Add To Wishlist</button>
+  </form>
+</div>

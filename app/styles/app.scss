@@ -1,0 +1,48 @@
+@import "ember-foundation";
+
+a.active {
+  border-bottom: 4px solid #0089FF;
+}
+
+.profile-image {
+  width: 32px;
+  height: auto;
+  margin-right: 6px;
+  border: 1px solid #ddd;
+}
+
+.new-wishlist {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.wishlist-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: space-around;
+  align-items: stretch;
+  padding: 10px;
+}
+
+.wishlist-card {
+  border: 1px solid #ddd;
+  flex: 1;
+  margin: 10px;
+  border-radius: 6px;
+  min-width: 30%;
+  max-width: 50%;
+}
+
+.wishlist-card--content {
+  padding: 10px;
+  white-space: normal;
+}
+
+.wishlist-card--title {
+  background-color: #ddd;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  margin: 0;
+  padding: 4px 5px;
+  text-align: center;
+}

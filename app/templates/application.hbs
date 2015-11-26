@@ -1,0 +1,36 @@
+<nav class="top-bar docs-bar hide-for-small" data-topbar>
+  <ul class="title-area">
+    <li class="name">
+      <h1>
+        {{#link-to "index"}}Wishlist{{/link-to}}
+      </h1>
+    </li>
+  </ul>
+
+  <section class="top-bar-section">
+    <ul class="left">
+      <li class="divider"></li>
+      {{#if session.isAuthenticated}}
+        <li>{{#link-to 'wishlist.new'}}Create a new Wishlist{{/link-to}}</li>
+      {{/if}}
+      <li class="divider"></li>
+    </ul>
+
+    <ul class="right">
+      <li class="divider"></li>
+      <li>
+        {{#if session.isAuthenticated}}
+          <a href="#" {{action "signOut"}}>
+            <img src="{{session.currentUser.profileImageURL}}" alt="{{session.currentUser.displayName}}'s display image'" class="profile-image" />
+            Sign out of {{session.currentUser.displayName}}
+          </a>
+        {{else}}
+          <a href="#" {{action "signIn" "twitter"}}>Sign in with Twitter</a>
+        {{/if}}
+      </li>
+      <li class="divider"></li>
+    </ul>
+  </section>
+</nav>
+
+{{outlet}}

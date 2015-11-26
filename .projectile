@@ -1,0 +1,6 @@
+-/log
+-/tmp
+-/vendor
+-/public/uploads
+-/node_modules
+-/bower_components

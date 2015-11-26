@@ -1,0 +1,21 @@
+<div class="wishlist-container">
+  {{#if session.isAuthenticated}}
+    {{#each usersWishlists as |wishlist|}}
+      <div class="wishlist-card">
+        <h4 class="wishlist-card--title">
+          {{#link-to 'wishlist.show' wishlist}}
+            {{wishlist.itemName}}
+          {{/link-to}}
+        </h4>
+        <div class="wishlist-card--content">
+          <img alt="" src="{{wishlist.imgURL}}"/>
+          <p>{{wishlist.description}}</p>
+          <p>Created by: {{wishlist.submittedByDisplayName}}</p>
+          <p>{{wishlist.storeName}}</p>
+          <p>{{wishlist.itemURL}}</p>
+          <p>{{wishlist.price}}</p>
+        </div>
+      </div>
+    {{/each}}
+  {{/if}}
+</div>
