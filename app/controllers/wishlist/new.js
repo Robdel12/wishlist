@@ -26,6 +26,7 @@ export default Ember.Controller.extend({
         // be batched the data results will likely be out of order.
         _this.set('itemName', data.title);
         _this.set('nameOfStore', data.provider_name);
+        _this.set('description', data.description);
         _this.set('imgURL', data.images[0].url); //todo carosel throug the avail ones
       });
     }
@@ -39,7 +40,7 @@ export default Ember.Controller.extend({
         price: this.get('price'),
         description: this.get('description'),
         itemURL: this.get('itemURL'),
-        storeName: this.get('storeName'),
+        storeName: this.get('nameOfStore'),
         submittedBy: this.get('session.currentUser.id'),
         submittedByDisplayName: this.get('session.currentUser.displayName')
       });
@@ -51,7 +52,7 @@ export default Ember.Controller.extend({
           price: null,
           description: null,
           itemURL: null,
-          storeName: null,
+          nameOfStore: null,
           submittedBy: null,
           submittedByDisplayName: null
         });

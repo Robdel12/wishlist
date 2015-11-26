@@ -1,8 +1,6 @@
-<h1 class="your-wishlist-title">Your Wishlist Items</h1>
 <div class="wishlist-container">
-  {{#if session.isAuthenticated}}
-    {{#each usersWishlists as |wishlist|}}
-      <div class="wishlist-card">
+  {{#each model as |wishlist|}}
+    <div class="wishlist-card">
         <h4 class="wishlist-card--title">
           {{#link-to 'wishlist.show' wishlist}}
             {{wishlist.itemName}}
@@ -28,6 +26,5 @@
           </div>
         </div>
       </div>
-    {{/each}}
-  {{/if}}
+  {{/each}}
 </div>

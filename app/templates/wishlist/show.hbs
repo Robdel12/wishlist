@@ -1,7 +1,51 @@
 <div class="new-wishlist">
-  <h1>{{model.itemName}}</h1>
-  <p>{{model.description}}</p>
-  <p>{{model.storeName}}</p>
-  <p>{{model.itemURL}}</p>
-  <p>${{model.price}}</p>
+  {{#if ownedWishedItem}}
+    <a href="#" {{action "toggleEditForm"}}>Edit</a>
+    <a href="#" {{action "deleteWishlist"}}>Delete</a>
+  {{/if}}
+  {{#if showEditForm}}
+    <h1 class="wishlist-show--title">
+      {{input type="text" value=model.itemName}}
+    </h1>
+    <div class="row">
+      <div class="small-4 columns">
+        <a href="{{model.itemURL}}">
+          <img alt="Image of {{model.itemName}}" src="{{model.imgURL}}" class="wishlist-image" />
+        </a>
+      </div>
+      <div class="small-8 columns">
+        {{#if model.storeName}}
+          <p>Store: {{input type="text" value=model.storeName}}</p>
+        {{/if}}
+        <p>Created by: {{model.submittedByDisplayName}}</p>
+        <p>Price: {{input type="text" value=model.price}}</p>
+        {{#if model.description}}
+          <p>Description: {{input type="text" value=model.description}}</p>
+        {{/if}}
+
+        <button type="submit" {{action "saveChanges"}}>Save changes</button>
+      </div>
+    </div>
+  {{else}}
+    <h1 class="wishlist-show--title">
+      {{model.itemName}}
+    </h1>
+    <div class="row">
+      <div class="small-4 columns">
+        <a href="{{model.itemURL}}">
+          <img alt="Image of {{model.itemName}}" src="{{model.imgURL}}" class="wishlist-image" />
+        </a>
+      </div>
+      <div class="small-8 columns">
+        {{#if model.storeName}}
+          <p>Store: {{model.storeName}}</p>
+        {{/if}}
+        <p>Created by: {{model.submittedByDisplayName}}</p>
+        <p>Price: {{format-money model.price format="%s%v"}}</p>
+        {{#if model.description}}
+          <p>{{model.description}}</p>
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
 </div>

@@ -11,6 +11,7 @@ Router.map(function() {
     this.route('new');
   });
   this.route('filter');
+  this.route('allwishes');
 });
 
 export default Router;

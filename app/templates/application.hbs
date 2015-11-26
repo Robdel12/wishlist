@@ -11,8 +11,10 @@
     <ul class="left">
       <li class="divider"></li>
       {{#if session.isAuthenticated}}
-        <li>{{#link-to 'wishlist.new'}}Create a new Wishlist{{/link-to}}</li>
+        <li>{{#link-to 'wishlist.new'}}Create a new Wish{{/link-to}}</li>
       {{/if}}
+      <li class="divider"></li>
+      <li>{{#link-to 'allwishes'}}All wishes{{/link-to}}</li>
       <li class="divider"></li>
     </ul>
 

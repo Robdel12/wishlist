@@ -34,9 +34,10 @@
       </div>
 
       <label for="description">Short description</label>
-      {{input type="text" name="description" value=description id="description"}}
+      {{textarea name="description" value=description id="description"}}
+
+      <button type="submit" class="{{if validURL '' 'disabled'}}">Add To Wishlist</button>
     {{/if}}
 
-    <button type="submit" class="{{if validURL '' 'disabled'}}">Add To Wishlist</button>
   </form>
 </div>
