@@ -2,7 +2,7 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   showEditForm: false,
-  ownedWishedItem: Ember.computed('session.currentUser', function() {
+  ownedWishedItem: Ember.computed('session.currentUser', 'model.[]', function() {
     console.log(this.get('model.submittedBy'), this.get('session.currentUser.id'), this.get('model.submittedBy') === this.get('session.currentUser.id'));
     if(this.get('model.submittedBy') === this.get('session.currentUser.id')) {
       return true;
