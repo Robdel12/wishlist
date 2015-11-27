@@ -1,30 +1,31 @@
+<h1 class="your-wishlist-title">All Wishlist Items</h1>
 <div class="wishlist-container">
   {{#each model as |wishlist|}}
     <div class="wishlist-card">
-        <h4 class="wishlist-card--title">
-          {{#link-to 'wishlist.show' wishlist}}
-            {{wishlist.itemName}}
-          {{/link-to}}
-        </h4>
-        <div class="wishlist-card--content">
-          <div class="row">
-            <div class="small-4 columns">
-              <a href="{{wishlist.itemURL}}">
-                <img alt="Image of {{wishlist.itemName}}" src="{{wishlist.imgURL}}" class="wishlist-image" />
-              </a>
-            </div>
-            <div class="small-8 columns">
-              {{#if wishlist.storeName}}
-                <p>Store: {{wishlist.storeName}}</p>
-              {{/if}}
-              <p>Created by: {{wishlist.submittedByDisplayName}}</p>
-              <p>Price: {{format-money wishlist.price format="%s%v"}}</p>
-              {{#if wishlist.description}}
-                <p>{{wishlist.description}}</p>
-              {{/if}}
-            </div>
+      <h4 class="wishlist-card--title">
+        {{#link-to 'wishlist.show' wishlist}}
+          {{wishlist.itemName}}
+        {{/link-to}}
+      </h4>
+      <div class="wishlist-card--content">
+        <div class="row">
+          <div class="large-4 columns">
+            <a href="{{wishlist.itemURL}}">
+              <img alt="Image of {{wishlist.itemName}}" src="{{wishlist.imgURL}}" class="wishlist-image" />
+            </a>
+          </div>
+          <div class="large-8 columns">
+            {{#if wishlist.storeName}}
+              <p>Store: {{wishlist.storeName}}</p>
+            {{/if}}
+            <p>Created by: {{wishlist.submittedByDisplayName}}</p>
+            <p>Price: {{format-money wishlist.price format="%s%v"}}</p>
+            {{#if wishlist.description}}
+              <p>{{wishlist.description}}</p>
+            {{/if}}
           </div>
         </div>
       </div>
+    </div>
   {{/each}}
 </div>

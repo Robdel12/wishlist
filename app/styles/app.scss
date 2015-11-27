@@ -206,3 +206,24 @@
     }
   }
 }
+
+@media screen and (min-width: 320px) and (max-width: 599px) {
+  .your-wishlist-title {
+    font-size: 1.7rem;
+    text-align: center;
+    padding: 12px 0 4px 0px;
+  }
+
+  .wishlist-container {
+    padding: 4px;
+  }
+
+  .wishlist-card {
+    margin: 0;
+    margin-bottom: 10px;
+  }
+
+  .wishlist-show--title {
+    font-size: 1.4rem;
+  }
+}
