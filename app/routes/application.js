@@ -18,24 +18,27 @@ export default Ember.Route.extend({
         this.store.peekAll('user').filter((registerdUser) => {
           if(registerdUser.get('uid') === registeringUID) {
             console.log('user exists');
+            this.get('session').set('content.userRecordID', registerdUser.get('id'));
             isNewUser = false;
           }
         });
 
         // console.log(isNewUser);
-
         if(isNewUser) {
           console.log('create new user');
-          let newUser = this.store.createRecord('user', {
-            uid: registeringUID,
+          this.newUser = this.store.createRecord('user', {
+            id: registeringUID,
+            uid: user.uid,
             displayName: user.currentUser.displayName,
-            userName: user.currentUser.userName
+            userName: user.currentUser.userName,
+            profileImageURL: user.currentUser.profileImageURL
           });
           // console.log('about to save the user');
-          newUser.save();
+          this.get('session').set('content.userRecordID', this.newUser.get('id'));
+          this.newUser.save();
         }
-
       });
+
     },
     signOut: function() {
       this.get("session").close();

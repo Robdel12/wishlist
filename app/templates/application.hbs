@@ -1,24 +1,20 @@
-<nav class="top-bar docs-bar hide-for-small" data-topbar>
-  <ul class="title-area">
-    <li class="name">
-      <h1>
-        {{#link-to "index"}}Wishlist{{/link-to}}
-      </h1>
-    </li>
-  </ul>
-
-  <section class="top-bar-section">
-    <ul class="left">
+<nav class="main-navigation">
+  <section class="navbar--left">
+    <ul>
+      {{#link-to "index" tagName="li"}}
+        Wishlist
+      {{/link-to}}
       <li class="divider"></li>
       {{#if session.isAuthenticated}}
-        <li>{{#link-to 'wishlist.new'}}Create a new Wish{{/link-to}}</li>
+        {{#link-to 'wishlist.new' tagName="li"}}Create a new Wish{{/link-to}}
       {{/if}}
       <li class="divider"></li>
-      <li>{{#link-to 'allwishes'}}All wishes{{/link-to}}</li>
+      {{#link-to 'allwishes' tagName="li"}}All wishes{{/link-to}}
       <li class="divider"></li>
     </ul>
-
-    <ul class="right">
+  </section>
+  <section class="navbar--right">
+    <ul>
       <li class="divider"></li>
       <li>
         {{#if session.isAuthenticated}}
