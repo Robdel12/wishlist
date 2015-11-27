@@ -20,7 +20,7 @@
         {{#if session.isAuthenticated}}
           <a href="#" {{action "signOut"}}>
             <img src="{{session.currentUser.profileImageURL}}" alt="{{session.currentUser.displayName}}'s display image'" class="profile-image" />
-            Sign out of {{session.currentUser.displayName}}
+            Sign out
           </a>
         {{else}}
           <a href="#" {{action "signIn" "twitter"}}>Sign in with Twitter</a>
