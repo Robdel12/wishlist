@@ -212,6 +212,7 @@
 @media screen and (max-width: 600px) {
   .wishlist-card {
     min-width: 100%;
+    flex: none;
   }
 
   .not-signed-in {
