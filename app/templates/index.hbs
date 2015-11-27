@@ -1,4 +1,9 @@
-<h1 class="your-wishlist-title">Your Wishlist Items</h1>
+{{#if session.isAuthenticated}}
+  <h1 class="your-wishlist-title">Your Wishlist Items</h1>
+{{else}}
+  <h1 class="not-signed-in"><a href="#"  {{action "signIn" "twitter"}}>Sign in</a> to create a wishlist</h1>
+{{/if}}
+
 <div class="wishlist-container">
   {{#if session.isAuthenticated}}
     {{#each usersWishlists as |wishlist|}}
