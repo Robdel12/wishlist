@@ -1,4 +1,55 @@
 @import "ember-foundation";
+/* @import 'ember-basic-dropdown'; */
+
+.ember-basic-dropdown {
+  position: relative;
+}
+
+.ember-basic-dropdown, .ember-basic-dropdown *, .ember-basic-dropdown-content, .ember-basic-dropdown-content * {
+  box-sizing: border-box;
+}
+
+.ember-basic-dropdown-content {
+  position: absolute;
+  width: 100%;
+  padding: 5px 10px;
+  z-index: 1000;
+  color: white;
+  background-color: #353535;
+  border-top: 1px solid #5A5A5A;
+
+  ul {
+    margin: 0;
+
+    li {
+      padding: 9px 4px;
+      border-bottom: 1px solid #ddd;
+      list-style: none;
+
+      a {
+        color: white;
+      }
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &.active {
+        position: relative;
+        margin-bottom: 0;
+
+        &:before {
+          content: '';
+          position: absolute;
+          left: -8px;
+          top: 0;
+          height: 100%;
+          border: 2px solid #0089FF;
+        }
+      }
+    }
+  }
+}
 
 .main-navigation {
   background-color: #2D2D2D;
@@ -53,10 +104,26 @@
     }
 
     h1 {
+      align-self: center;
       line-height: 1rem;
     }
 
   }
+}
+
+.title-container {
+  width: 100%;
+
+  h1 {
+    margin: 0 0 0 31%;
+    font-size: 1.6rem;
+    color: white;
+  }
+}
+
+.mobile-nav--trigger {
+  font-size: 2rem;
+  padding-left: 10px;
 }
 
 .active {
@@ -128,5 +195,14 @@
 @media screen and (max-width: 600px) {
   .wishlist-card {
     min-width: 100%;
+  }
+}
+
+@media screen and (min-width: 520px) {
+  .title-container {
+
+    h1 {
+      margin: 0 0 0 42%;
+    }
   }
 }
