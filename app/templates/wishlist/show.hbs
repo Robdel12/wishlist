@@ -19,8 +19,13 @@
         {{/if}}
         <p>Created by: {{model.submittedByDisplayName}}</p>
         <p>Price: {{input type="text" value=model.price}}</p>
+
         {{#if model.description}}
           <p>Description: {{input type="text" value=model.description}}</p>
+        {{/if}}
+
+        {{#if model.quantity}}
+          <p>Quantity: {{input type="text" value=model.quantity}}</p>
         {{/if}}
 
         <button type="submit" {{action "saveChanges"}}>Save changes</button>
@@ -40,8 +45,13 @@
         {{#if model.storeName}}
           <p>Store: {{model.storeName}}</p>
         {{/if}}
-        <p>Created by: {{model.submittedByDisplayName}}</p>
+        <p>Created by: {{#link-to 'profile.show' model.submittedBy}}{{model.submittedByDisplayName}}{{/link-to}}</p>
         <p>Price: {{format-money model.price format="%s%v"}}</p>
+
+        {{#if model.quantity}}
+          <p>Quantity: {{model.quantity}}</p>
+        {{/if}}
+
         {{#if model.description}}
           <p>{{model.description}}</p>
         {{/if}}

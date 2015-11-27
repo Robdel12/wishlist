@@ -9,5 +9,6 @@ export default DS.Model.extend({
   price: DS.attr('string'),
   description: DS.attr('string'),
   imgURL: DS.attr('string'),
+  quantity: DS.attr('string', { defaultValue: "1" }),
   isPurchased: DS.attr('boolean', { defaultValue: false })
 });

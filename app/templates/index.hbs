@@ -24,8 +24,11 @@
               {{#if wishlist.storeName}}
                 <p>Store: {{wishlist.storeName}}</p>
               {{/if}}
-              <p>Created by: {{wishlist.submittedByDisplayName}}</p>
+              <p>Created by: {{#link-to 'profile.show' wishlist.submittedBy}}{{wishlist.submittedByDisplayName}}{{/link-to}}</p>
               <p>Price: {{format-money wishlist.price format="%s%v"}}</p>
+              {{#if wishlist.quantity}}
+                <p>Quantity: {{wishlist.quantity}}</p>
+              {{/if}}
               {{#if wishlist.description}}
                 <p>{{wishlist.description}}</p>
               {{/if}}

@@ -20,7 +20,7 @@
           {{/if}}
         </li>
       </ul>
-    {{else}}
+{{else}}
       <div class="mobile-nav--trigger">
         ☰
       </div>
@@ -58,6 +58,10 @@
             <a href="#" {{action "signIn" "twitter"}}>Sign in with Twitter</a>
           {{/if}}
         </li>
+        <li class="divider"></li>
+        {{#if session.isAuthenticated}}
+          {{#link-to 'profile.edit' tagName="li"}}Edit Profile{{/link-to}}
+        {{/if}}
         <li class="divider"></li>
       </ul>
     </section>

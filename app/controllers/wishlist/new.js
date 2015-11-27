@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
       let deferred = Ember.$.embedly.extract(q, {
         key: 'f20e2982b7704d49a1bab940400f9016',
         query: {
-          words: 20,
+          words: 20
         }
       }).progress(function(data) {
         // Called after each URL has been returned from the Embedly server. Order
@@ -39,12 +39,13 @@ export default Ember.Controller.extend({
     createNewItem() {
       console.log(this.get('imgURL'));
       var newWishlist = this.store.createRecord('wishlist', {
-        itemName: this.get('itemName'),
-        imgURL: this.get('imgURL'),
         price: this.get('price'),
-        description: this.get('description'),
+        imgURL: this.get('imgURL'),
         itemURL: this.get('itemURL'),
+        quantity: this.get('quantity'),
+        itemName: this.get('itemName'),
         storeName: this.get('nameOfStore'),
+        description: this.get('description'),
         submittedBy: this.get('session.currentUser.id'),
         submittedByDisplayName: this.get('session.currentUser.displayName')
       });
@@ -58,8 +59,10 @@ export default Ember.Controller.extend({
           itemURL: null,
           nameOfStore: null,
           submittedBy: null,
+          quantity: null,
           submittedByDisplayName: null
         });
+
         this.set('validURL', false);
         this.transitionTo('index');
       });

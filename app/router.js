@@ -10,8 +10,13 @@ Router.map(function() {
     this.route('show', { path: ':id' });
     this.route('new');
   });
+
   this.route('allwishes');
-  this.route('profile', { path: 'profile' });
+
+  this.route('profile', { path: '/u' }, function() {
+    this.route('show', { path: ':id' });
+    this.route('edit');
+  });
 });
 
 export default Router;
