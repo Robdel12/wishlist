@@ -3,8 +3,10 @@
   <form class="new-wishlist-form" {{action "createNewItem" on="submit"}}>
     <label for="item_url">Item URL</label>
     {{input type="text" name="wishlist_name" value=itemURL id="item_url" placeholder="http://www.example.com"}}
+    {{#if isLoadingLink}}
+      Loading link data...
+    {{/if}}
     {{#if validURL}}
-
       <div class="row">
         <div class="small-2 columns">
           {{#if imgURL}}
@@ -15,10 +17,10 @@
         </div>
         <div class="small-10 columns">
           <label for="wishlist_name">Item Name</label>
-          {{input type="text" name="wishlist_name" value=itemName id="wishlist_name"}}
+          {{input type="text" name="wishlist_name" value=itemName disabled=isLoadingLink id="wishlist_name"}}
 
           <label for="store_name">Store Name</label>
-          {{input type="text" name="store_name" value=nameOfStore id="store_name"}}
+          {{input type="text" name="store_name" value=nameOfStore disabled=isLoadingLink id="store_name"}}
         </div>
       </div>
 
@@ -29,12 +31,12 @@
           <span class="prefix">$</span>
         </div>
         <div class="small-10 large-11 columns">
-          {{input type="text" class="input-group-field" name="price" required="true" value=price id="price"}}
+          {{input type="text" class="input-group-field" name="price" required="true" disabled=isLoadingLink value=price id="price"}}
         </div>
       </div>
 
       <label for="description">Short description</label>
-      {{textarea name="description" value=description id="description"}}
+      {{textarea name="description" value=description disabled=isLoadingLink id="description"}}
 
       <button type="submit" class="{{if validURL '' 'disabled'}}">Add To Wishlist</button>
     {{/if}}

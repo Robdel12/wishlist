@@ -2,6 +2,8 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   validURL: false,
+  isLoadingLink: false,
+
   validateURL(textval) {
     console.log("textval = ", textval);
     var urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
@@ -14,6 +16,7 @@ export default Ember.Controller.extend({
 
     if(this.validateURL(q)) {
       this.set('validURL', true);
+      this.set('isLoadingLink', true);
 
       let deferred = Ember.$.embedly.extract(q, {
         key: 'f20e2982b7704d49a1bab940400f9016',
@@ -24,6 +27,7 @@ export default Ember.Controller.extend({
         // Called after each URL has been returned from the Embedly server. Order
         // is not preserved for this method, so for long lists where URLs need to
         // be batched the data results will likely be out of order.
+        _this.set('isLoadingLink', false);
         _this.set('itemName', data.title);
         _this.set('nameOfStore', data.provider_name);
         _this.set('description', data.description);
