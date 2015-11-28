@@ -58,6 +58,10 @@
             <a href="#" {{action "signIn" "twitter"}}>Sign in with Twitter</a>
           {{/if}}
         </li>
+        {{#unless session.isAuthenticated}}
+          <li><a href="#" {{action "signIn" "facebook"}}>Sign in with Facebook</a></li>
+
+        {{/unless}}
         <li class="divider"></li>
         {{#if session.isAuthenticated}}
           {{#link-to 'profile.edit' tagName="li"}}Edit Profile{{/link-to}}
