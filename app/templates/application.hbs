@@ -19,6 +19,9 @@
             <a href="#" {{action "signIn" "twitter"}}>Sign in with Twitter</a>
           {{/if}}
         </li>
+        {{#unless session.isAuthenticated}}
+          <li><a href="#" {{action "signIn" "facebook"}}>Sign in with Facebook</a></li>
+        {{/unless}}
       </ul>
 {{else}}
       <div class="mobile-nav--trigger">
@@ -59,8 +62,8 @@
           {{/if}}
         </li>
         {{#unless session.isAuthenticated}}
+          <li class="divider"></li>
           <li><a href="#" {{action "signIn" "facebook"}}>Sign in with Facebook</a></li>
-
         {{/unless}}
         <li class="divider"></li>
         {{#if session.isAuthenticated}}
