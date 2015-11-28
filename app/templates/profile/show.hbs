@@ -39,7 +39,10 @@
     </div>
   </div>
 
-  <div class="profile-container--right">
+  {{#if media.isMobile}}
+    <h2>Info about {{model.displayName}}</h2>
+  {{/if}}
+  <div class="profile---right">
     <img alt="{{model.displayName}}'s profile image'" src="{{model.profileImageURL}}" />
     <p>Shirt Size: {{model.shirtSize}}</p>
     <p>Pant Size: {{model.pantSize}}</p>

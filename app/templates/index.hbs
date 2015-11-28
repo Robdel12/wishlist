@@ -36,6 +36,10 @@
           </div>
         </div>
       </div>
+    {{else}}
+      <h1 class="nothing-here--medium">
+        You don't have any wishes! {{#link-to wishlist.new}}Create one{{/link-to}} now
+      </h1>
     {{/each}}
   {{/if}}
 </div>
