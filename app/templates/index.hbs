@@ -15,6 +15,7 @@
         </div>
         <div class="wishlist-card--content">
           <p>{{#link-to 'wishlist.show' wishlist}}{{wishlist.itemName}}{{/link-to}}</p>
+          <p>Wished by: {{#link-to 'profile.show' wishlist.submittedBy}}{{wishlist.submittedByDisplayName}}{{/link-to}}</p>
           <span class="wishlist-card--price">{{format-money wishlist.totalPrice format="%s%v"}}</span>
         </div>
       </div>
