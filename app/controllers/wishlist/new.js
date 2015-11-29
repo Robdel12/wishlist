@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   validURL: false,
   isLoadingLink: false,
+  quantity: 1,
 
   validateURL(textval) {
     console.log("textval = ", textval);
