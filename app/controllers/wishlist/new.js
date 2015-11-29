@@ -6,11 +6,11 @@ export default Ember.Controller.extend({
   quantity: 1,
 
   validateURL(textval) {
-    console.log("textval = ", textval);
     var urlregex = /^(https?|ftp):\/\/([a-zA-Z0-9.-]+(:[a-zA-Z0-9.&%$-]+)*@)*((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9][0-9]?)(\.(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])){3}|([a-zA-Z0-9-]+\.)*[a-zA-Z0-9-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(:[0-9]+)*(\/($|[a-zA-Z0-9.,?'\\+&%$#=~_-]+))*$/;
-    console.log("urlregex.test = ", urlregex.test(textval));
+
     return urlregex.test(textval);
   },
+
   queryLink: Ember.observer('itemURL', function() {
     let q = this.get('itemURL');
     let _this = this;
@@ -36,10 +36,13 @@ export default Ember.Controller.extend({
       });
     }
   }),
+
   actions: {
     createNewItem() {
-      console.log(this.get('imgURL'));
+      let date = new Date();
+
       var newWishlist = this.store.createRecord('wishlist', {
+        createdAt: date,
         price: this.get('price'),
         imgURL: this.get('imgURL'),
         itemURL: this.get('itemURL'),

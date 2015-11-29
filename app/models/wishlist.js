@@ -11,6 +11,7 @@ export default DS.Model.extend({
   imgURL: DS.attr('string'),
   quantity: DS.attr('string', { defaultValue: "1" }),
   isPurchased: DS.attr('boolean', { defaultValue: false }),
+  createdAt: DS.attr('date'),
   totalPrice: Ember.computed('quantity', 'price', function() {
     let price = parseInt(this.get('price'), 10);
     let quantity = parseInt(this.get('quantity'), 10) || 1;
