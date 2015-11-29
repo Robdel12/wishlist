@@ -64,7 +64,7 @@ export default Ember.Controller.extend({
         });
 
         this.set('validURL', false);
-        this.transitionTo('index');
+        this.transitionTo('wishlist.show', newWishlist.id);
       });
     }
   }
