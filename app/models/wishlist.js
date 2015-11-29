@@ -6,7 +6,7 @@ export default DS.Model.extend({
   itemName: DS.attr('string'),
   itemURL: DS.attr('string'),
   storeName: DS.attr('string'),
-  price: DS.attr('string'),
+  price: DS.attr('number'),
   description: DS.attr('string'),
   imgURL: DS.attr('string'),
   quantity: DS.attr('string', { defaultValue: "1" }),

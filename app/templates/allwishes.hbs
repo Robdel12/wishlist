@@ -1,6 +1,7 @@
 <h1 class="your-wishlist-title">All Wishlist Items</h1>
+<p>Sort Price: <a href="#" {{action "priceSort"}}>{{sortPriceInfelction}}</a></p>
 <div class="wishlist-container">
-  {{#each model as |wishlist|}}
+  {{#each sortedModel as |wishlist|}}
     <div class="wishlist-card">
       <h4 class="wishlist-card--title">
         {{#link-to 'wishlist.show' wishlist}}

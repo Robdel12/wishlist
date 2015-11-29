@@ -315,3 +315,16 @@
     font-size: 1.4rem;
   }
 }
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  select:focus,
+  textarea:focus,
+  input:focus {
+    font-size: 16px !important;
+  }
+  select,
+  textarea,
+  input {
+    font-size: 16px !important; //say no to iOS zooming
+  }
+}
