@@ -60,7 +60,7 @@ export default Ember.Controller.extend({
           itemURL: null,
           nameOfStore: null,
           submittedBy: null,
-          quantity: null,
+          quantity: 1,
           submittedByDisplayName: null
         });
 

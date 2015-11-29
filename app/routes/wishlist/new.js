@@ -13,7 +13,7 @@ export default Ember.Route.extend({
       itemURL: null,
       nameOfStore: null,
       submittedBy: null,
-      quantity: null,
+      quantity: 1,
       validURL: false,
       submittedByDisplayName: null
     });

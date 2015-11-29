@@ -3,30 +3,14 @@
 <div class="wishlist-container">
   {{#each sortedModel as |wishlist|}}
     <div class="wishlist-card">
-      <h4 class="wishlist-card--title">
+      <div class="wishlist-card--title">
         {{#link-to 'wishlist.show' wishlist}}
-          {{wishlist.itemName}}
+          <img alt="Image of {{wishlist.itemName}}" src="{{wishlist.imgURL}}" class="wishlist-image" />
         {{/link-to}}
-      </h4>
+      </div>
       <div class="wishlist-card--content">
-        <div class="row">
-          <div class="large-4 columns">
-            <a href="{{wishlist.itemURL}}">
-              <img alt="Image of {{wishlist.itemName}}" src="{{wishlist.imgURL}}" class="wishlist-image" />
-            </a>
-          </div>
-          <div class="large-8 columns">
-            {{#if wishlist.storeName}}
-              <p>Store: {{wishlist.storeName}}</p>
-            {{/if}}
-
-            <p>Created by: {{#link-to 'profile.show' wishlist.submittedBy}}{{wishlist.submittedByDisplayName}}{{/link-to}}</p>
-            <p>Price: {{format-money wishlist.price format="%s%v"}}</p>
-            {{#if wishlist.description}}
-              <p>{{wishlist.description}}</p>
-            {{/if}}
-          </div>
-        </div>
+        <p>{{#link-to 'wishlist.show' wishlist}}{{wishlist.itemName}}{{/link-to}}</p>
+        <span class="wishlist-card--price">{{format-money wishlist.totalPrice format="%s%v"}}</span>
       </div>
     </div>
   {{/each}}
