@@ -5,9 +5,9 @@ export default Ember.Controller.extend({
   price: 'asc',
   sortPriceInfelction: Ember.computed('price', function() {
     if(this.get('price') === 'asc') {
-      return "High to low"
+      return "High to low";
     } else {
-      return "Low to high"
+      return "Low to high";
     }
   }),
   sortProperties: Ember.computed('price', function() {
@@ -21,7 +21,7 @@ export default Ember.Controller.extend({
       if(this.get('price') === "desc") {
         this.set('price', 'asc');
       } else {
-        this.set('price', 'desc')
+        this.set('price', 'desc');
       }
     }
   }
